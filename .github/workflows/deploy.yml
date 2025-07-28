@@ -33,5 +33,6 @@ jobs:
             echo "Building app..."
             npm run build
             echo "Restarting PM2 service..."
-            pm2 restart your-app-name  # Replace with your PM2 service name
+            pm2 restart green  # Replace with your PM2 service name
             echo "Deployment complete."
+
