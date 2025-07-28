@@ -27,9 +27,7 @@ jobs:
             echo "Starting deployment..."
             cd /var/www/test-next-ci
             echo "Pulling latest code..."
-            git pull
-            echo "Installing dependencies..."
-            npm install
+            git pull origin main
             echo "Building app..."
             npm run build
             echo "Restarting PM2 service..."
