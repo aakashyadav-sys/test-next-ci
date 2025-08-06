@@ -57,3 +57,12 @@ jobs:
             fi
             
             echo "Deployment complete."
+      
+       # Send post-deployment Telegram notification
+      - name: Send post-deployment Telegram notification
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d parse_mode="Markdown" \
+            -d text="✅ *Deployment complete* for *${{ github.ref_name }}* by *${{ github.actor }}*.\n\n[View Commit](https://github.com/${{ github.repository }}/commit/${{ github.sha }})"
+       
